@@ -1,23 +1,34 @@
 import React,{ useState } from 'react'
 import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom"; 
 import "./Products.css";
 
 const Products = () => {
+  const navigate = useNavigate();
 
-    const [clicked, setClicked] = useState(Array(9).fill(false)); // Array để theo dõi trạng thái của mỗi button
+    const handleBackClick = () => {
+        navigate('/');  
+    }
+    const [clicked, setClicked] = useState(Array(9).fill(false)); 
   
     const handleClick = (index) => {
       const newClicked = [...clicked];
-      newClicked[index] = !newClicked[index]; // Đảo ngược trạng thái của nút đã click
+      newClicked[index] = !newClicked[index]; 
       setClicked(newClicked);
     }
-     // Hàm xử lý khi click vào nút "Thanh toán"
+
     const handlePayment = () => {
-      setClicked(Array(9).fill(false)); // Đặt lại trạng thái tất cả các nút về false
+      setClicked(Array(9).fill(false)); 
     }
   return (
     <div className='product-container'>
-      <div className='icon-back'><i>back</i></div>
+      <div className='nav' onClick={handleBackClick} >
+        <div className='icon-back'>
+          <svg width="30" height="40" viewBox="0 0 56 59" fill="none" xmlns="http://www.w3.org/2000/svg" >
+            <path d="M31.36 39.3546L21.9734 29.5L31.36 19.6455M54.6667 29.5C54.6667 44.918 42.7276 57.4167 28 57.4167C13.2724 57.4167 1.33337 44.918 1.33337 29.5C1.33337 14.0821 13.2724 1.58337 28 1.58337C42.7276 1.58337 54.6667 14.0821 54.6667 29.5Z" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
       <div className='product-list'>
         {['Ô long sữa', 'Ô long nhài sữa', 'Gạo khói', 'Ô long hoa sen', 'Ô long nướng', 'Ô long nếp', 'Ô long matcha', 'Ô long hoa dành dành', 'Ô long lụa vàng'].map((text, index) => (
           <button
@@ -25,13 +36,13 @@ const Products = () => {
             onClick={() => handleClick(index)}
             style={{
               backgroundColor: clicked[index] ? '#DEB887' : '#021331',
-              height: '80px', // Màu sắc nút thay đổi theo trạng thái
+              height: '80px', 
               color: 'white',
               padding: '10px 20px',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
-              transition: 'all 0.2s ease' /* Thêm hiệu ứng mượt */
+              transition: 'all 0.2s ease' 
 
             }}
           >
