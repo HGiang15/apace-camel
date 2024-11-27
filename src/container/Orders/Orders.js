@@ -19,7 +19,9 @@ const Orders = () => {
         { id: 6, date: "21/06/2024", total: "700.000" },
         { id: 7, date: "22/03/2024", total: "100.000" },
         { id: 8, date: "23/06/2024", total: "350.000" },
-        { id: 9, date: "23/06/2024", total: "350.000" },
+        { id: 9, date: "16/06/2024", total: "350.000" },
+        { id: 10, date: "12/09/2024", total: "950.000" },
+        { id: 11, date: "02/06/2024", total: "450.000" },
     ];
 
     // Get API
@@ -67,28 +69,31 @@ const Orders = () => {
 
     return (
         <div className="orders-container">
-            <div className="orders-grid">
-                {orders.map((order) => (
-                    <div className="order-card" key={order.id}>
-                        <h3>Đơn hàng #{order.id}</h3>
-                        <p>Ngày Order: {order.date}</p>
-                        <p>Thành tiền: {order.total} VNĐ</p>
-                        <div className="order-actions">
-                            <Link to={`/orderdetail/${order.id}`}>
-                                <button className="order-detail-btn">Xem chi tiết</button>
-                            </Link>
-                            <button className="order-delete-btn" onClick={() => handleDelete(order.id)}>
-                                Xóa
-                            </button>
-                        </div>
-                    </div>
-                ))}
+    <div className="orders-grid">
+        {orders.map((order) => (
+            <div className="order-card" key={order.id}>
+                <h3>Đơn hàng #{order.id}</h3>
+                <p>Ngày Order: {order.date}</p>
+                <p>Thành tiền: {order.total} VNĐ</p>
+                <div className="order-actions">
+                    <Link to={`/orderdetail/${order.id}`}>
+                        <button className="order-detail-btn">Xem chi tiết</button>
+                    </Link>
+                    <button
+                        className="order-delete-btn"
+                        onClick={() => handleDelete(order.id)}
+                    >
+                        Xóa
+                    </button>
+                </div>
             </div>
+        ))}
+    </div>
+    <button className="back-btn" onClick={handleGoBack}>
+        Quay lại
+    </button>
+</div>
 
-            <button className="back-btn" onClick={handleGoBack}>
-                Quay lại
-            </button>
-        </div>
     );
 };
 
