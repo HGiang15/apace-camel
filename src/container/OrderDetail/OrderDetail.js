@@ -59,34 +59,37 @@ const OrderDetail = () => {
     }
 
     return (
-        <div className="order-detail">
-            <h2>Chi tiết đơn hàng #{order.id}</h2>
-
-            <div className="order-info">
-                <div className="order-summary">
-                    <p>
-                        <strong>Tên sản phẩm:</strong> {order.name}
-                    </p>
-                    <p>
-                        <strong>Giá:</strong> {order.price} VNĐ
-                    </p>
-                    <p>
-                        <strong>Số lượng:</strong> {order.quantity}
-                    </p>
-                    <p>
-                        <strong>Ngày Order:</strong> {order.date}
-                    </p>
-                    <p>
-                        <strong>Tổng cộng:</strong> {order.total}
-                    </p>
+        <div className="order-detail-container">
+            <div className="order-detail">
+                <h2>Chi tiết đơn hàng #{order.id}</h2>
+    
+                <div className="order-info">
+                    <div className="order-summary">
+                        <p>
+                            <strong>Tên sản phẩm:</strong> {order.name}
+                        </p>
+                        <p>
+                            <strong>Giá:</strong> {order.price} VNĐ
+                        </p>
+                        <p>
+                            <strong>Số lượng:</strong> {order.quantity}
+                        </p>
+                        <p>
+                            <strong>Ngày Order:</strong> {order.date}
+                        </p>
+                        <p>
+                            <strong>Tổng cộng:</strong> {order.total}
+                        </p>
+                    </div>
                 </div>
+    
+                <button className="back-btn" onClick={handleGoBack}>
+                    Quay lại
+                </button>
             </div>
-
-            <button className="back-btn" onClick={handleGoBack}>
-                Quay lại
-            </button>
         </div>
     );
+    
 };
 
 export default OrderDetail;

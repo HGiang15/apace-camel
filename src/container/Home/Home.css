@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: url("https://i.pinimg.com/736x/1b/29/a1/1b29a1fa32a1d6c070e996af5220d540.jpg"); /* Đường dẫn đến ảnh */
+  background-image: url("https://i.pinimg.com/736x/1b/29/a1/1b29a1fa32a1d6c070e996af5220d540.jpg"); 
   background-size: cover;
   background-position: center;
-  color: #fff; /* Màu chữ để tương phản với nền */
+  color: #fff; 
 }
 
 .home-container h1 {
@@ -20,7 +20,7 @@
 
 .home-container div {
   display: flex;
-  gap: 20px; /* Khoảng cách giữa các nút */
+  gap: 20px; 
 }
 
 .btn {
@@ -31,7 +31,7 @@
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease; /* Thêm hiệu ứng mượt */
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
