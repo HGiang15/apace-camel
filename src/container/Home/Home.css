@@ -1,17 +1,41 @@
+/* Home.css */
+
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-  }
-  
-  .home-container h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("https://i.pinimg.com/736x/1b/29/a1/1b29a1fa32a1d6c070e996af5220d540.jpg"); /* Đường dẫn đến ảnh */
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Màu chữ để tương phản với nền */
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home-container div {
+  display: flex;
+  gap: 20px; /* Khoảng cách giữa các nút */
+}
+
+.btn {
+  background-color: #021331;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Thêm hiệu ứng mượt */
+}
+
+.btn:hover {
+  background-color: #5b85ce;
+  transform: scale(1.1);
+}
+

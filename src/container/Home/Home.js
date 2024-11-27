@@ -1,15 +1,44 @@
-import React from 'react';
-import Button from '../../components/Button/Button'; 
+// import React from "react";
+// import Button from "../../components/Button/Button";
 
-import './Home.css'; 
+// import "./Home.css";
+
+// const Home = () => {
+//   return (
+//     <div className="home-container">
+//       <h1>Cụm 1 - Apache Camel</h1>
+//       <div style={{ display: "flex" }}>
+//       <Button text="Sản phẩm" route="/products" />
+//         <Button text="Đơn hàng" route="/orders" />
+//         <Button text="Superset" route="/superset" />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+
+import React from "react";
+import { useNavigate } from "react-router-dom"; 
+import Button from "../../components/Button/Button";
+import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate(); 
+
+  const handleClick = (route) => {
+    navigate(route);
+  };
+
   return (
     <div className="home-container">
       <h1>Cụm 1 - Apache Camel</h1>
-      <Button text="Sản phẩm" />
-      <Button text="Đơn hàng" />
-      <Button text="Superset" />
+      <div style={{ display: "flex" }}>
+        <Button text="Sản phẩm" onClick={() => handleClick("/products")} />
+        <Button text="Đơn hàng" onClick={() => handleClick("/orders")} />
+        <Button text="Superset" onClick={() => handleClick("/superset")} />
+      </div>
     </div>
   );
 };
