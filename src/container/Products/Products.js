@@ -41,7 +41,7 @@ const Products = () => {
       })
       .then(data => {
         console.log('Đơn hàng đã được thêm thành công:', data);
-        navigate(`/orderdetail/${orders.id}`);
+        navigate(`/orderdetail/${data}`);
       })
       .catch(error => {
         console.error("Lỗi khi thêm đơn hàng:", error);
