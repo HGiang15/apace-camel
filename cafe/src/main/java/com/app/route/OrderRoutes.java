@@ -6,6 +6,7 @@ import org.apache.camel.model.dataformat.JsonLibrary;
 import org.springframework.stereotype.Component;
 
 import com.app.model.order;
+import com.app.service.OrderService;
 
 @Component
 public class OrderRoutes extends RouteBuilder {
@@ -32,7 +33,7 @@ public class OrderRoutes extends RouteBuilder {
 
                 from("direct:getOneOrder")
                                 .log("Received request for order ID: ${header.id}")
-                                .bean("orderService", "getOneOrder(${header.id})")
+                                .bean("orderService", "getOrderById(${header.id})")
                                 .log("Retrieved order: ${body}")
                                 .setHeader("Content-Type", constant("application/json"))
                                 .marshal().json();
@@ -48,9 +49,10 @@ public class OrderRoutes extends RouteBuilder {
                                                                                     // Order
                                 .process(exchange -> {
                                         order or = exchange.getIn().getBody(order.class);
+                                        OrderService orderService = new OrderService();
                                         or.setId(String.valueOf(order.read().size()));
-                                        System.out.println("Saving order: " + or);
                                         or.write();
+                                        orderService.createOrder(Integer.parseInt(or.getId()),or.getDate(), or.getTotalMoney(), or.getProducts());
                                         exchange.getIn().setBody(or.getId());
                                 })
                                 .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(200)) // Trả về mã 200 OK

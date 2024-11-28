@@ -15,14 +15,14 @@ public class order {
     private String id;
     private String date;
     private int totalMoney;
-    private ArrayList<product> products;
+    private List<product> products;
 
     @JsonCreator
     public order(
         @JsonProperty("id") String id,
         @JsonProperty("date") String date,
         @JsonProperty("totalMoney") int totalMoney,
-        @JsonProperty("products") ArrayList<product> products) {
+        @JsonProperty("products") List<product> products) {
         this.id = id;
         this.date = date;
         this.totalMoney = totalMoney;
@@ -32,7 +32,7 @@ public class order {
     public order() {
     }
 
-    public order(String id, ArrayList<product> products, String date, int totalMoney) {
+    public order(String id, List<product> products, String date, int totalMoney) {
         this.id = id;
         this.products = products;
         this.date = date;
@@ -63,11 +63,11 @@ public class order {
         this.totalMoney = totalMoney;
     }
 
-    public ArrayList<product> getProducts() {
+    public List<product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<product> products) {
+    public void setProducts(List<product> products) {
         this.products = products;
     }
 

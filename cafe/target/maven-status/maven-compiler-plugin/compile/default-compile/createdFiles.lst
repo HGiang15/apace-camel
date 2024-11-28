@@ -1,8 +1,8 @@
-com\app\CoffeeShopApplication.class
 com\app\service\OrderService.class
 com\app\service\ProductService.class
-com\app\model\product.class
 com\app\route\OrderRoutes.class
 com\app\model\order.class
 com\app\route\ProductRoutes.class
 com\app\repository\OrderRepository.class
+com\app\CoffeeShopApplication.class
+com\app\model\product.class

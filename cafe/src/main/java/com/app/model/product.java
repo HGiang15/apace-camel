@@ -27,8 +27,7 @@ public class product {
         this.currency = currency;
     }
 
-    public product(String name) {
-        this.name = name;
+    public product() {
     }
 
     public String getName() {
