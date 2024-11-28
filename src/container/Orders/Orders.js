@@ -79,7 +79,7 @@ const Orders = () => {
             <div className="order-card" key={order.id}>
                 <h3>Đơn hàng #{order.id}</h3>
                 <p>Ngày Order: {order.date}</p>
-                <p>Thành tiền: {order.total} VNĐ</p>
+                <p>Thành tiền: {order.totalMoney}k VNĐ</p>
                 <div className="order-actions">
                     <Link to={`/orderdetail/${order.id}`}>
                         <button className="order-detail-btn">Xem chi tiết</button>
