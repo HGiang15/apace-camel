@@ -4,10 +4,10 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url("https://i.pinimg.com/736x/1b/29/a1/1b29a1fa32a1d6c070e996af5220d540.jpg"); /* Đường dẫn đến ảnh */
+    background-image: url("https://i.pinimg.com/736x/0b/5d/d8/0b5dd84a8ece8833557cc36e1bf1b75c.jpg"); /* Đường dẫn đến ảnh */
     background-size: cover;
     background-position: center;
-    color: #fff; 
+    color: #fff;
 }
 .product-container .nav{
     width: 800px;
