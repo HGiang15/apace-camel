@@ -1,0 +1,49 @@
+[
+    {
+        "id":"1",
+        "name": "Ô long sữa",
+        "price":100,
+        "currency":"vnd"
+    },
+    {   "id":"2",
+        "name": "Ô long nhài sữa",
+        "price":90,
+        "currency":"vnd"
+    },
+    {   "id":"3",
+        "name": "Gạo khói",
+        "price":100,
+        "currency":"vnd"
+    },
+    {   "id":"4",
+        "name": "Ô long hoa sen",
+        "price":120,
+        "currency":"vnd"
+    },
+    {   "id":"5",
+        "name": "Ô long nướng",
+        "price":40,
+        "currency":"vnd"
+    },
+    {   "id":"6",
+        "name": "Ô long nếp",
+        "price":150,
+        "currency":"vnd"
+    },
+    {   "id":"7",
+        "name": "Ô long matcha",
+        "price":70,
+        "currency":"vnd"
+    },
+    {   "id":"8",
+        "name": "Ô long hoa dành dành",
+        "price":60,
+        "currency":"vnd"
+    }
+    ,
+    {   "id":"9",
+        "name": "Ô long hoa lụa vàng",
+        "price":110,
+        "currency":"vnd"
+    }
+]

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./OrderDetail.css";
 
 const OrderDetail = () => {
@@ -10,35 +9,30 @@ const OrderDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fix cứng
-    const fixedOrderDetail = {
-        id: orderId,
-        name: "Sản phẩm 1",
-        price: "100.000",
-        quantity: 1,
-        date: "26/11/2024",
-        total: "1.000.000vnd",
-    };
-
     useEffect(() => {
         const fetchOrderDetails = async () => {
             try {
                 setLoading(true);
-
-                setTimeout(() => {
-                    // const response = await axios.get(`api/orders/${orderId}`);
-                    // setOrder(response.data);
-
-                    setOrder(fixedOrderDetail);
-
+                const response = await fetch(`http://localhost:8080/api/camel/get/order/${orderId}`);
+                if (!response.ok) {
+                    throw new Error("Không thể lấy dữ liệu đơn hàng chi tiết");
+                }
+                const orderData = await response.json();  // Chuyển đổi dữ liệu từ response thành JSON
+                if (!orderData || orderData.length === 0) {  // Kiểm tra nếu không có dữ liệu
+                    console.log("Không có đơn hàng nào");
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 5000);
+                }
+                else {
+                    setOrder(orderData);
                     setLoading(false);
-                }, 500);
+                }
             } catch (error) {
                 setError("Không thể lấy dữ liệu đơn hàng chi tiết");
                 setLoading(false);
-            }
+            };
         };
-
         fetchOrderDetails();
     }, [orderId]);
 
@@ -62,34 +56,33 @@ const OrderDetail = () => {
         <div className="order-detail-container">
             <div className="order-detail">
                 <h2>Chi tiết đơn hàng #{order.id}</h2>
-    
+
                 <div className="order-info">
                     <div className="order-summary">
                         <p>
-                            <strong>Tên sản phẩm:</strong> {order.name}
+                            <strong>Tên sản phẩm:</strong>
                         </p>
-                        <p>
-                            <strong>Giá:</strong> {order.price} VNĐ
-                        </p>
-                        <p>
-                            <strong>Số lượng:</strong> {order.quantity}
-                        </p>
+                        <ul>
+                            {order && order.products.map((value, index) => (
+                                <li key={index} >{value.name} - {value.price}k vnd</li>
+                            ))}
+                        </ul>
                         <p>
                             <strong>Ngày Order:</strong> {order.date}
                         </p>
                         <p>
-                            <strong>Tổng cộng:</strong> {order.total}
+                            <strong>Tổng cộng:</strong> {order.totalMoney}k vnd
                         </p>
                     </div>
                 </div>
-    
+
                 <button className="back-btn" onClick={handleGoBack}>
                     Quay lại
                 </button>
             </div>
         </div>
     );
-    
+
 };
 
 export default OrderDetail;

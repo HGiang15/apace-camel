@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Orders.css";
 
 const Orders = () => {
@@ -29,15 +28,21 @@ const Orders = () => {
         const fetchOrders = async () => {
             try {
                 setLoading(true);
-
-                setTimeout(() => {
-                    // const response = await axios.get("api/orders");
-                    // setOrders(response.data);
-
-                    setOrders(fixedOrders);
-
+                const response =await fetch("http://localhost:8080/api/camel/orders/all");
+                if (!response.ok) {
+                    throw new Error("Không thể lấy dữ liệu đơn hàng chi tiết");
+                }
+                const ords =await response.json();
+                if (!ords || ords.length === 0) {  // Kiểm tra nếu không có dữ liệu
+                    console.log("Không có đơn hàng nào");
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 5000);
+                }
+                else{
+                    setOrders(ords);
                     setLoading(false);
-                }, 500);
+                }
             } catch (error) {
                 setError("Không thể lấy dữ liệu đơn hàng");
                 setLoading(false);
